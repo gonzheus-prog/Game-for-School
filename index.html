@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GameHub</title>
+<style>
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#0f172a;
+  color:white;
+}
+header{
+  background:#2563eb;
+  padding:20px;
+  text-align:center;
+  font-size:32px;
+  font-weight:bold;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:15px;
+  padding:20px;
+}
+.game{
+  background:#1e293b;
+  border-radius:14px;
+  padding:20px;
+  text-align:center;
+  cursor:pointer;
+}
+.game:hover{
+  background:#334155;
+}
+</style>
+</head>
+<body>
+
+<header>🎮 GameHub</header>
+
+<div class="grid" id="grid"></div>
+
+<script>
+const names = [
+"Rhythm Rush","Cube Jump","Buddy Smash","Snake","Flappy",
+"Space Shooter","Drift Car","2048","Platform Run","Color Tap"
+];
+
+for(let i=11;i<=100;i++){
+  names.push("Spiel "+i);
+}
+
+const grid=document.getElementById("grid");
+
+names.forEach(n=>{
+  const d=document.createElement("div");
+  d.className="game";
+  d.innerHTML="<h3>"+n+"</h3>";
+  d.onclick=()=>alert("Du hast "+n+" ausgewählt!");
+  grid.appendChild(d);
+});
+</script>
+
+</body>
+</html>
